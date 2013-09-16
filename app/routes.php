@@ -55,3 +55,8 @@ Route::get('/applications', function()
 {
 	return View::make('applications');
 });
+
+Route::get('/add-application', function()
+{
+	return View::make('add-application');
+});
