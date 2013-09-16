@@ -40,3 +40,8 @@ Route::get('/delete', function()
 {
 	return View::make('delete');
 });
+
+Route::get('/account-overview', function()
+{
+	return View::make('account-overview');
+});
