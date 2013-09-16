@@ -45,3 +45,8 @@ Route::get('/account-overview', function()
 {
 	return View::make('account-overview');
 });
+
+Route::get('/endpoints', function()
+{
+	return View::make('endpoints');
+});
