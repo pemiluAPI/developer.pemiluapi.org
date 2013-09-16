@@ -60,3 +60,8 @@ Route::get('/add-application', function()
 {
 	return View::make('add-application');
 });
+
+Route::get('/edit-application', function()
+{
+	return View::make('edit-application');
+});
