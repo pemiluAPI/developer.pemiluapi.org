@@ -35,3 +35,8 @@ Route::get('/login', function()
 {
 	return View::make('login');
 });
+
+Route::get('/delete', function()
+{
+	return View::make('delete');
+});
