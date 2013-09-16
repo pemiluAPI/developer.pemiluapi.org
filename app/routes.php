@@ -25,3 +25,8 @@ Route::get('/documentation', function()
 {
 	return View::make('documentation');
 });
+
+Route::get('/signup', function()
+{
+	return View::make('signup');
+});
