@@ -50,3 +50,8 @@ Route::get('/endpoints', function()
 {
 	return View::make('endpoints');
 });
+
+Route::get('/applications', function()
+{
+	return View::make('applications');
+});
