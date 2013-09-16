@@ -20,3 +20,8 @@ Route::get('/about', function()
 {
 	return View::make('about');
 });
+
+Route::get('/documentation', function()
+{
+	return View::make('documentation');
+});
