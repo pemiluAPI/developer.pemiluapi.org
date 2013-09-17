@@ -5,7 +5,12 @@ The PemiluAPI developer website.
 ## Installation
 
 1. Clone this project
-1. Use Composer to do install the framework's dependencies
+1. Dowload Composer
+
+    ```bash
+    $ wget http://getcomposer.org/composer.phar
+    ```
+1. Install the framework's dependencies
 
     ```bash
     $ php composer.phar install
