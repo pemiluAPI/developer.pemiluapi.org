@@ -3,3 +3,10 @@
 composer.phar
 composer.lock
 .DS_Store
+
+Capfile
+Gemfile
+Gemfile.lock
+/bin
+/config
+/.bundle
