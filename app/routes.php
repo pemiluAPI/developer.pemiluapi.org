@@ -28,7 +28,38 @@ Route::get('/documentation', function()
 
 Route::get('/signup', function()
 {
-	return View::make('signup');
+    $user = new User;
+
+    return View::make('signup', array('user' => $user));
+});
+
+Route::post('/signup', function()
+{
+	$data = Input::all();
+
+    $rules = array(
+        'email' => 'required|email|unique:users',
+        'name' => 'required|alpha|min:2',
+        'password' => 'required|min:5|same:password_confirmation'
+    );
+
+    $validator = Validator::make($data, $rules);
+
+    if ($validator->passes()) {
+        $user = new User;
+        $user->email = $data['email'];
+        $user->name = $data['name'];
+        $user->password = Hash::make($data['password']);
+        $user->save();
+
+        Session::flash('alert', 'Pendaftaran berhasil. Silahkan login.');
+        Session::flash('alert_class', 'success');
+        return View::make('login');
+    }
+
+    Session::flash('alert', 'Pendaftaran gagal. Silahkan coba lagi.');
+    Session::flash('alert_class', 'danger');
+    return Redirect::to('/signup')->withErrors($validator)->withInput(Input::except('password'));
 });
 
 Route::get('/login', function()
@@ -51,7 +82,7 @@ Route::get('/endpoints', function()
 	return View::make('endpoints');
 });
 
-Route::get('/applications', function()
+Route::get('/applications', array('before' => 'auth'), function()
 {
 	return View::make('applications');
 });

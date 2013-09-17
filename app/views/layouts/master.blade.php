@@ -44,6 +44,12 @@
         </div>
     </div>
 
+    @if(Session::get('alert'))
+    <div class="container">
+        <div class="alert alert-{{ Session::get('alert_class') }}">{{ Session::get('alert') }}</div>
+    </div>
+    @endif
+
     @yield('content')
 
     <footer>
@@ -51,7 +57,7 @@
             <p>The Elections API is being built in partnership with <a href="http://asiafoundation.org/">The Asia Foundation</a></p>
         </div>
     </footer>
-    
+
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </body>

@@ -5,28 +5,31 @@
     <div class="page-header"><h1>Create an account</h1></div>
     <div class="row">
         <div class="col-lg-6">
-            <form class="well">
-                <div class="form-group">
-                    <label>Email address</label>
-                    <input type="email" class="form-control" placeholder="Email">
+            {{ Form::model($user, array('url' => 'signup')) }}
+                <div class="form-group @if($errors->has('email')) has-error @endif">
+                    {{ Form::label('email', 'E-mail address', array('class' => 'control-label')) }}
+                    <small class="text-danger">{{ $errors->first('email') }}</small>
+                    {{ Form::text('email', Form::getValueAttribute('email'), array('class' => 'form-control')) }}
                 </div>
-                <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" class="form-control" placeholder="Username">
+                <div class="form-group @if($errors->has('name')) has-error @endif">
+                    {{ Form::label('name', 'Name', array('class' => 'control-label')) }}
+                    <small class="text-danger">{{ $errors->first('name') }}</small>
+                    {{ Form::text('name', Form::getValueAttribute('name'), array('class' => 'form-control')) }}
                 </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" placeholder="Password">
+                <div class="form-group @if($errors->has('password')) has-error @endif">
+                    {{ Form::label('password', 'Password', array('class' => 'control-label')) }}
+                    <small class="text-danger">{{ $errors->first('password') }}</small>
+                    {{ Form::password('password', array('class' => 'form-control')) }}
                 </div>
-                <div class="form-group">
-                    <label>Confirm password</label>
-                    <input type="text" class="form-control" placeholder="Password confirmation">
+                <div class="form-group @if($errors->has('password')) has-error @endif">
+                    {{ Form::label('password_confirmation', 'Confirm password', array('class' => 'control-label')) }}
+                    {{ Form::password('password_confirmation', array('class' => 'form-control')) }}
                 </div>
                 <p>
                     By creating an account, you agree to PemiluAPI's Terms & Conditions.
                 </p>
-                <button type="submit" class="btn btn-primary">Sign up</button>
-            </form>
+                {{ Form::button('Sign up', array('type' => 'submit', 'class' => 'btn btn-primary')) }}
+            {{ Form::close() }}
         </div>
     </div>
 </div>
