@@ -5,17 +5,17 @@
     <div class="page-header"><h1>Please sign in</h1></div>
     <div class="row">
         <div class="col-lg-6">
-            <form class="well">
+            {{ Form::open(array('url' => 'login')) }}
                 <div class="form-group">
-                    <label>Email address</label>
-                    <input type="email" class="form-control" placeholder="Email">
+                    {{ Form::label('email', 'E-mail address', array('class' => 'control-label')) }}
+                    {{ Form::text('email', Form::getValueAttribute('email'), array('class' => 'form-control')) }}
                 </div>
                 <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" class="form-control" placeholder="Password">
+                    {{ Form::label('password', 'Password', array('class' => 'control-label')) }}
+                    {{ Form::password('password', array('class' => 'form-control')) }}
                 </div>
                 <button type="submit" class="btn btn-primary">Log in</button>
-            </form>
+            {{ Form::close() }}
         </div>
     </div>
 </div>

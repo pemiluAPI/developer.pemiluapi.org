@@ -31,15 +31,21 @@
                     <li><a href="/documentation">Documentation</a></li>
                     <li><a href="/endpoints">Endpoints</a></li>
                 </ul>
-                <form class="navbar-form navbar-right">
+                @if(Auth::check())
+                <ul class="nav navbar-nav navbar-right">
+                    <li>{{ link_to('logout', 'Logout') }}</li>
+                </ul>
+                @else
+                {{ Form::open(array('url' => 'login', 'class' => 'navbar-form navbar-right')) }}
                     <div class="form-group">
-                        <input type="text" placeholder="Email" class="form-control">
+                        {{ Form::text('email', null, array('class' => 'form-control', 'placeholder' => 'E-mail address')) }}
                     </div>
                     <div class="form-group">
-                        <input type="password" placeholder="Password" class="form-control">
+                        {{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) }}
                     </div>
-                    <button type="submit" class="btn btn-success">Sign in</button>
-                </form>
+                    <button type="submit" class="btn btn-success">Log in</button>
+                <{{ Form::close() }}
+                @endif
             </div>
         </div>
     </div>

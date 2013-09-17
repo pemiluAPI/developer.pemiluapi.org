@@ -45,7 +45,8 @@ Route::post('/signup', function()
 
     $validator = Validator::make($data, $rules);
 
-    if ($validator->passes()) {
+    if ($validator->passes())
+    {
         $user = new User;
         $user->email = $data['email'];
         $user->name = $data['name'];
@@ -67,6 +68,27 @@ Route::get('/login', function()
 	return View::make('login');
 });
 
+Route::post('/login', function()
+{
+    if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password'))))
+    {
+        Session::flash('alert', 'Anda berhasil login.');
+        Session::flash('alert_class', 'success');
+        return Redirect::intended('applications');
+    }
+
+    Session::flash('alert', 'Login gagal. Silahkan coba lagi.');
+    Session::flash('alert_class', 'danger');
+    return Redirect::to('/login')->withInput();
+});
+
+Route::get('/logout', function()
+{
+    Auth::logout();
+
+    return Redirect::to('login');
+});
+
 Route::get('/delete', function()
 {
 	return View::make('delete');
@@ -82,10 +104,10 @@ Route::get('/endpoints', function()
 	return View::make('endpoints');
 });
 
-Route::get('/applications', array('before' => 'auth'), function()
+Route::get('/applications', array('before' => 'auth', function()
 {
 	return View::make('applications');
-});
+}));
 
 Route::get('/add-application', function()
 {
