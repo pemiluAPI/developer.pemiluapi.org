@@ -24,12 +24,13 @@
                 </button>
                 <a class="navbar-brand" href="/">PemiluAPI developer website</a>
             </div>
+            <?php $segments = Request::segments(); ?>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/documentation">Documentation</a></li>
-                    <li><a href="/endpoints">Endpoints</a></li>
+                    <li @if(!isset($segments[0]))class="active"@endif><a href="/">Home</a></li>
+                    <li @if(isset($segments[0]) && $segments[0] == 'about')class="active"@endif><a href="/about">About</a></li>
+                    <li @if(isset($segments[0]) && $segments[0] == 'documentation')class="active"@endif><a href="/documentation">Documentation</a></li>
+                    <li @if(isset($segments[0]) && $segments[0] == 'endpoints')class="active"@endif><a href="/endpoints">Endpoints</a></li>
                 </ul>
                 @if(Auth::check())
                 <ul class="nav navbar-nav navbar-right">
