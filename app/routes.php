@@ -28,6 +28,13 @@ Route::get('/documentation', function()
 
 Route::get('/signup', function()
 {
+    if (Auth::check())
+    {
+        Session::flash('alert', 'Anda sudah terdaftar sebagai pengguna.');
+        Session::flash('alert_class', 'warning');
+        return Redirect::to('/');
+    }
+
     $user = new User;
 
     return View::make('signup', array('user' => $user));
