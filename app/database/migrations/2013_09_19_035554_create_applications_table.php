@@ -18,6 +18,7 @@ class CreateApplicationsTable extends Migration {
             $table->text('description');
             $table->string('api_key', 32);
             $table->integer('user_id');
+            $table->string('endpoints');
             $table->timestamps();
         });
 	}

@@ -15,18 +15,21 @@
                     {{ Form::label('description', 'Description', array('class' => 'control-label')) }}
                     {{ Form::textarea('description', Form::getValueAttribute('description'), array('class' => 'form-control')) }}
                 </div>
-                <div class="form-group">
-                    <label>Endpoints</label>
+                <div class="form-group @if($errors->has('endpoints')) has-error @endif">
+                    <label class="control-label">Endpoints</label>
+                    <small class="text-danger">{{ $errors->first('endpoints') }}</small>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" value="">
+                            <?php $checked = is_null(Input::old('endpoints')) ? false : in_array('event', Input::old('endpoints')); ?>
+                            {{ Form::checkbox('endpoints[]', 'event', $checked) }}
                             Events &mdash;<small>Lacinia bibendum nulla sed consectetur.</small>
                         </label>
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" value="">
-                            Venues &mdash;<small>Curabitur blandit tempus porttitor</small>
+                            <?php $checked = is_null(Input::old('endpoints')) ? false : in_array('event', Input::old('endpoints')); ?>
+                            {{ Form::checkbox('endpoints[]', 'candidate', $checked) }}
+                            Candidates &mdash;<small>Curabitur blandit tempus porttitor</small>
                         </label>
                     </div>
                 </div>
