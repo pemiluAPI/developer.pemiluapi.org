@@ -2,7 +2,12 @@
 
 @section('content')
 <div class="container">
-    <div class="page-header"><h1>List of applications <a href="/add-application" class="btn btn-success">Create new</a></h1></div>
+    <div class="page-header">
+        <h1>
+            List of applications
+            {{ link_to_route('application.create', 'Create new', array(), array('class' => 'btn btn-success')) }}
+        </h1>
+    </div>
     <div class="row">
         <div class="col-lg-6">
             <h3>

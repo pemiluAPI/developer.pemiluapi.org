@@ -111,17 +111,4 @@ Route::get('/endpoints', function()
 	return View::make('endpoints');
 });
 
-Route::get('/applications', array('before' => 'auth', function()
-{
-	return View::make('applications');
-}));
-
-Route::get('/add-application', function()
-{
-	return View::make('add-application');
-});
-
-Route::get('/edit-application', function()
-{
-	return View::make('edit-application');
-});
+Route::resource('application', 'ApplicationController', array('before' => 'auth'));

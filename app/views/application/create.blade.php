@@ -5,14 +5,15 @@
     <div class="page-header"><h1>Create an application</h1></div>
     <div class="row">
         <div class="col-lg-6">
-            <form class="well">
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="email" class="form-control" placeholder="Name">
+            {{ Form::model($application, array('route' => array('application.store'))) }}
+                <div class="form-group @if($errors->has('title')) has-error @endif">
+                    {{ Form::label('title', 'Title', array('class' => 'control-label')) }}
+                    <small class="text-danger">{{ $errors->first('title') }}</small>
+                    {{ Form::text('title', Form::getValueAttribute('title'), array('class' => 'form-control')) }}
                 </div>
                 <div class="form-group">
-                    <label>Description</label>
-                    <textarea class="form-control" rows="4" placeholder="Description"></textarea>
+                    {{ Form::label('description', 'Description', array('class' => 'control-label')) }}
+                    {{ Form::textarea('description', Form::getValueAttribute('description'), array('class' => 'form-control')) }}
                 </div>
                 <div class="form-group">
                     <label>Endpoints</label>
@@ -32,8 +33,8 @@
                 <p>
                     By creating an application, you agree to PemiluAPI's Terms & Conditions.
                 </p>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+                {{ Form::button('Submit', array('type' => 'submit', 'class' => 'btn btn-primary')) }}
+            {{ Form::close() }}
         </div>
     </div>
 </div>

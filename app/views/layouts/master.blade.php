@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>PemiluAPI developer website</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/application.css" rel="stylesheet">
+    {{ HTML::style('css/bootstrap.min.css') }}
+    {{ HTML::style('css/application.css') }}
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -65,7 +65,7 @@
         </div>
     </footer>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    {{ HTML::script('js/jquery.min.js'); }}
+    {{ HTML::script('js/bootstrap.min.js'); }}
 </body>
 </html>
