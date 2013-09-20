@@ -9,7 +9,9 @@ class ApplicationController extends \BaseController {
      */
     public function index()
     {
-        return View::make('application.index');
+        $applications = Auth::user()->applications;
+
+        return View::make('application.index')->with('applications', $applications);
     }
 
     /**

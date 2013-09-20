@@ -81,7 +81,7 @@ Route::post('/login', function()
     {
         Session::flash('alert', 'Anda berhasil login.');
         Session::flash('alert_class', 'success');
-        return Redirect::intended('applications');
+        return Redirect::intended('application');
     }
 
     Session::flash('alert', 'Login gagal. Silahkan coba lagi.');
