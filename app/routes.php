@@ -111,4 +111,6 @@ Route::get('/endpoints', function()
 	return View::make('endpoints');
 });
 
-Route::resource('application', 'ApplicationController', array('before' => 'auth'));
+Route::group(array('before' => 'auth'), function(){
+    Route::resource('application', 'ApplicationController');
+});
