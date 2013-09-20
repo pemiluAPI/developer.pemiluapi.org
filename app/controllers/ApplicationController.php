@@ -125,7 +125,11 @@ class ApplicationController extends \BaseController {
      */
     public function destroy($id)
     {
-        //
+        Application::destroy($id);
+
+        Session::flash('alert', 'Aplikasi berhasil dihapus.');
+        Session::flash('alert_class', 'success');
+        return Redirect::route('application.index');
     }
 
 }

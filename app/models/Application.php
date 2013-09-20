@@ -12,4 +12,11 @@ class Application extends Eloquent {
 	 */
 	protected $table = 'applications';
 
+    /**
+     * Enable soft deletes for the model.
+     *
+     * @var boolean
+     */
+    protected $softDelete = true;
+
 }
