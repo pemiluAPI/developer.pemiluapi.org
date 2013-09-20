@@ -79,7 +79,7 @@ class ApplicationController extends \BaseController {
      */
     public function edit($id)
     {
-        //
+        return View::make('application.edit')->with('application', Application::find($id));
     }
 
     /**
@@ -90,7 +90,31 @@ class ApplicationController extends \BaseController {
      */
     public function update($id)
     {
-        //
+        $data = Input::all();
+
+        $rules = array(
+            'title' => 'required',
+            'endpoints' => 'required'
+        );
+
+        $validator = Validator::make($data, $rules);
+
+        if ($validator->passes())
+        {
+            $application = Application::find($id);
+            $application->title = $data['title'];
+            $application->description = $data['description'];
+            $application->endpoints = json_encode($data['endpoints']);
+            $application->save();
+
+            Session::flash('alert', 'Edit aplikasi berhasil.');
+            Session::flash('alert_class', 'success');
+            return Redirect::route('application.index');
+        }
+
+        Session::flash('alert', 'Edit aplikasi gagal. Silahkan coba lagi.');
+        Session::flash('alert_class', 'danger');
+        return Redirect::route('application.edit', $id)->withErrors($validator)->withInput();
     }
 
     /**

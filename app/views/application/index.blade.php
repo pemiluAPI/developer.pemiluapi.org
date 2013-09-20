@@ -33,7 +33,7 @@
             @foreach ($applications as $application)
             <h3>
                 {{ $application->title }}
-                <a href="/edit-application" class="btn btn-primary">Edit</a>
+                {{ link_to_route('application.edit', 'Edit', $application->id, array('class' => 'btn btn-primary')) }}
                 <a href="#deleteApplication" class="btn btn-danger" data-toggle="modal">Delete</a>
             </h3>
             <p>
