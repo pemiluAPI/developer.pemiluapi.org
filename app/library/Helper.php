@@ -26,7 +26,5 @@ class Helper
         $link = link_to($url, $title);
 
         return '<li' . $class . '>' . $link . '</li>';
-        // <li @if(!isset($segments[0]))class="active"@endif><a href="/">Home</a></li>
-        // <li @if(isset($segments[0]) && $segments[0] == 'about')class="active"@endif><a href="/about">About</a></li>
     }
 }
