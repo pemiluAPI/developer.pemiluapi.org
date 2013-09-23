@@ -96,35 +96,36 @@ Route::get('/logout', function()
     return Redirect::to('login');
 });
 
-Route::get('/account/delete', function()
-{
-    return View::make('account.delete');
-});
-
-Route::delete('/account/delete', function()
-{
-    // Delete owned applications
-    Application::where('user_id', '=', Auth::user()->id)->delete();
-
-    // Delete the account
-    User::destroy(Auth::user()->id);
-
-    // Logged her out
-    return Redirect::to('logout');
-});
-
-Route::get('/account', function()
-{
-    $applications = Auth::user()->applications;
-
-    return View::make('account.index')->with('applications', $applications);;
-});
-
 Route::get('/endpoints', function()
 {
     return View::make('endpoints');
 });
 
-Route::group(array('before' => 'auth'), function(){
+Route::group(array('before' => 'auth'), function()
+{
     Route::resource('application', 'ApplicationController');
+
+    Route::get('/account/delete', function()
+    {
+        return View::make('account.delete');
+    });
+
+    Route::delete('/account/delete', function()
+    {
+        // Delete owned applications
+        Application::where('user_id', '=', Auth::user()->id)->delete();
+
+        // Delete the account
+        User::destroy(Auth::user()->id);
+
+        // Logged her out
+        return Redirect::to('logout');
+    });
+
+    Route::get('/account', function()
+    {
+        $applications = Auth::user()->applications;
+
+        return View::make('account.index')->with('applications', $applications);;
+    });
 });
