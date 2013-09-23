@@ -13,17 +13,17 @@
 
 Route::get('/', function()
 {
-	return View::make('home');
+    return View::make('home');
 });
 
 Route::get('/about', function()
 {
-	return View::make('about');
+    return View::make('about');
 });
 
 Route::get('/documentation', function()
 {
-	return View::make('documentation');
+    return View::make('documentation');
 });
 
 Route::get('/signup', function()
@@ -42,7 +42,7 @@ Route::get('/signup', function()
 
 Route::post('/signup', function()
 {
-	$data = Input::all();
+    $data = Input::all();
 
     $rules = array(
         'email' => 'required|email|unique:users',
@@ -72,7 +72,7 @@ Route::post('/signup', function()
 
 Route::get('/login', function()
 {
-	return View::make('login');
+    return View::make('login');
 });
 
 Route::post('/login', function()
@@ -96,21 +96,33 @@ Route::get('/logout', function()
     return Redirect::to('login');
 });
 
-Route::get('/delete', function()
+Route::get('/account/delete', function()
 {
-	return View::make('delete');
+    return View::make('account.delete');
+});
+
+Route::delete('/account/delete', function()
+{
+    // Delete owned applications
+    Application::where('user_id', '=', Auth::user()->id)->delete();
+
+    // Delete the account
+    User::destroy(Auth::user()->id);
+
+    // Logged her out
+    return Redirect::to('logout');
 });
 
 Route::get('/account', function()
 {
     $applications = Auth::user()->applications;
 
-	return View::make('account')->with('applications', $applications);;
+    return View::make('account.index')->with('applications', $applications);;
 });
 
 Route::get('/endpoints', function()
 {
-	return View::make('endpoints');
+    return View::make('endpoints');
 });
 
 Route::group(array('before' => 'auth'), function(){

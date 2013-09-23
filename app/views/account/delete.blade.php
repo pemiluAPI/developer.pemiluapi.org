@@ -9,9 +9,11 @@
                 By deleting your account, your applications will be no longer able to
                 use the Pemilu API
             </p>
-            <form>
-                <button type="submit" class="btn btn-danger">Delete my account</button>
-            </form>
+            {{ Form::open(array('url' => 'account/delete', 'method' => 'delete')) }}
+                <button type="submit" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-trash"></span> Delete this account
+                </button>
+            {{ Form::close() }}
         </div>
     </div>
 </div>
