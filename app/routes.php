@@ -101,9 +101,11 @@ Route::get('/delete', function()
 	return View::make('delete');
 });
 
-Route::get('/account-overview', function()
+Route::get('/account', function()
 {
-	return View::make('account-overview');
+    $applications = Auth::user()->applications;
+
+	return View::make('account')->with('applications', $applications);;
 });
 
 Route::get('/endpoints', function()

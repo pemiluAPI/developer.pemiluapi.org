@@ -33,6 +33,7 @@
                 </ul>
                 @if(Auth::check())
                 <ul class="nav navbar-nav navbar-right">
+                    {{ Helper::navItem('My Account', 'account') }}
                     {{ Helper::navItem('Applications', 'application') }}
                     {{ Helper::navItem('Logout', 'logout') }}
                 </ul>
