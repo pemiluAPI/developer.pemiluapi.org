@@ -2,6 +2,7 @@
 
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
+use Guzzle\Http\Client;
 
 class Application extends Eloquent {
 
@@ -18,5 +19,13 @@ class Application extends Eloquent {
      * @var boolean
      */
     protected $softDelete = true;
+
+    public function endpoints()
+    {
+        $uri = Config::get('pemiluapi.host');
+        $client = new Client($uri);
+        $endpoints = $client->get('/endpoints')->send()->json();
+        return $endpoints['data'];
+    }
 
 }

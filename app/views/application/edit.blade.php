@@ -15,31 +15,25 @@
                     {{ Form::label('description', 'Description', array('class' => 'control-label')) }}
                     {{ Form::textarea('description', Form::getValueAttribute('description'), array('class' => 'form-control')) }}
                 </div>
+
+                <?php
+                    // Available endpoints
+                    $endpoints = $application->endpoints();
+
+                    // Current application endpoints
+                    $application->endpoints = json_decode($application->endpoints);
+                ?>
                 <div class="form-group @if($errors->has('endpoints')) has-error @endif">
                     <label class="control-label">Endpoints</label>
                     <small class="text-danger">{{ $errors->first('endpoints') }}</small>
+                    @foreach ($endpoints as $endpoint)
                     <div class="checkbox">
                         <label>
-                            <?php
-                                $endpoints = json_decode($application->endpoints);
-                                // We need to nullify endpoints
-                                // so Laravel will not automatically
-                                // set the checked state to true
-                                $application->endpoints = null;
-                            ?>
-
-                            <?php $checked = in_array('event', $endpoints); ?>
-                            {{ Form::checkbox('endpoints[]', 'event', $checked) }}
-                            Events &mdash;<small>Lacinia bibendum nulla sed consectetur.</small>
+                            {{ Form::checkbox('endpoints[]', $endpoint['slug']) }}
+                            {{ $endpoint['name'] }} &mdash;<small>{{ $endpoint['desc'] }}</small>
                         </label>
                     </div>
-                    <div class="checkbox">
-                        <label>
-                            <?php $checked = in_array('candidate', $endpoints); ?>
-                            {{ Form::checkbox('endpoints[]', 'candidate', $checked) }}
-                            Candidates &mdash;<small>Curabitur blandit tempus porttitor</small>
-                        </label>
-                    </div>
+                    @endforeach
                 </div>
                 {{ Form::button('Update', array('type' => 'submit', 'class' => 'btn btn-primary')) }}
             {{ Form::close() }}

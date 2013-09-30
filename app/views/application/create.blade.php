@@ -18,20 +18,15 @@
                 <div class="form-group @if($errors->has('endpoints')) has-error @endif">
                     <label class="control-label">Endpoints</label>
                     <small class="text-danger">{{ $errors->first('endpoints') }}</small>
+                    @foreach($application->endpoints as $endpoint)
                     <div class="checkbox">
                         <label>
-                            <?php $checked = is_null(Input::old('endpoints')) ? false : in_array('event', Input::old('endpoints')); ?>
-                            {{ Form::checkbox('endpoints[]', 'event', $checked) }}
-                            Events &mdash;<small>Lacinia bibendum nulla sed consectetur.</small>
+                            <?php $checked = is_null(Input::old('endpoints')) ? false : in_array($endpoint['slug'], Input::old('endpoints')); ?>
+                            {{ Form::checkbox('endpoints[]', $endpoint['slug'], $checked) }}
+                            {{ $endpoint['name'] }} &mdash;<small>{{ $endpoint['desc'] }}</small>
                         </label>
                     </div>
-                    <div class="checkbox">
-                        <label>
-                            <?php $checked = is_null(Input::old('endpoints')) ? false : in_array('candidate', Input::old('endpoints')); ?>
-                            {{ Form::checkbox('endpoints[]', 'candidate', $checked) }}
-                            Candidates &mdash;<small>Curabitur blandit tempus porttitor</small>
-                        </label>
-                    </div>
+                    @endforeach
                 </div>
                 <p>
                     By creating an application, you agree to PemiluAPI's Terms & Conditions.

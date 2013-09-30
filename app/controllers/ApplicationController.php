@@ -21,7 +21,10 @@ class ApplicationController extends \BaseController {
      */
     public function create()
     {
-        return View::make('application.create')->with('application', new Application);
+        $application = new Application();
+        $application->endpoints = $application->endpoints();
+
+        return View::make('application.create')->with('application', $application);
     }
 
     /**
