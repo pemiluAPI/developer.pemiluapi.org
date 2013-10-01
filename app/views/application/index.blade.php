@@ -51,11 +51,13 @@
             <h4>Registered endpoints</h4>
             <table class="table table-bordered">
                 <tbody>
-                    @foreach (json_decode($application->endpoints) as $endpoint)
-                    <tr>
-                        <td>{{ $endpoint }}</td>
-                        <td>Description to be added later ...</td>
-                    </tr>
+                    @foreach ($application->endpoints() as $endpoint)
+                        @if (in_array($endpoint['slug'], json_decode($application->endpoints)))
+                        <tr>
+                            <td>{{ $endpoint['name'] }}</td>
+                            <td>{{ $endpoint['desc'] }}</td>
+                        </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>
