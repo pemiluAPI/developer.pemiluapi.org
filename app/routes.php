@@ -98,7 +98,10 @@ Route::get('/logout', function()
 
 Route::get('/endpoints', function()
 {
-    return View::make('endpoints');
+    $application = new Application();
+    $endpoints = $application->endpoints();
+
+    return View::make('endpoints')->with('endpoints', $endpoints);
 });
 
 Route::group(array('before' => 'auth'), function()
