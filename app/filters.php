@@ -37,8 +37,11 @@ Route::filter('auth', function()
 {
 	if (Auth::guest())
     {
-        Session::flash('alert', 'Anda harus login untuk mengakses halaman tersebut. Silahkan login.');
+        $message = (Request::path() == 'application/create') ? 'membuat aplikasi' : 'mengakses halaman tersebut';
+
+        Session::flash('alert', 'Anda harus login untuk ' . $message . '. Silahkan login.');
         Session::flash('alert_class', 'warning');
+
         return Redirect::guest('login');
     }
 });
