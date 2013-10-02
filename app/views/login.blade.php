@@ -2,7 +2,12 @@
 
 @section('content')
 <div class="container">
-    <div class="page-header"><h1>Silahkan login</h1></div>
+    <div class="page-header">
+        <h1>
+            Silahkan login
+            <small>atau {{ link_to('signup', 'Buat akun baru') }}</small>
+        </h1>
+    </div>
     <div class="row">
         <div class="col-lg-6">
             {{ Form::open(array('url' => 'login')) }}

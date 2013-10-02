@@ -38,15 +38,20 @@
                     {{ Helper::navItem('Logout', 'logout') }}
                 </ul>
                 @else
-                {{ Form::open(array('url' => 'login', 'class' => 'navbar-form navbar-right')) }}
-                    <div class="form-group">
-                        {{ Form::text('email', null, array('class' => 'form-control', 'placeholder' => 'Alamat e-mail')) }}
-                    </div>
-                    <div class="form-group">
-                        {{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) }}
-                    </div>
-                    <button type="submit" class="btn btn-success">Login</button>
-                <{{ Form::close() }}
+                    @unless(Request::path() == 'login')
+                    {{ Form::open(array('url' => 'login', 'class' => 'navbar-form navbar-right')) }}
+                        <div class="form-group">
+                            {{ Form::text('email', null, array('class' => 'form-control', 'placeholder' => 'Alamat e-mail')) }}
+                        </div>
+                        <div class="form-group">
+                            {{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) }}
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        @unless(Request::path() == 'signup')
+                        {{ link_to('signup', 'Buat akun baru', array('class' => 'btn btn-success')) }}
+                        @endunless
+                    {{ Form::close() }}
+                    @endunless
                 @endif
             </div>
         </div>
