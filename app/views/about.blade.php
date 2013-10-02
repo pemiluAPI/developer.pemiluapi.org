@@ -5,6 +5,16 @@
     <div class="page-header"><h1>Pemilu API 2014</h1></div>
     <div class="row">
         <div class="col-lg-8">
+            <p>
+                {{
+                    link_to_route(
+                        'application.create',
+                        'Buat aplikasi sekarang',
+                        null,
+                        array('class' => 'btn btn-success btn-lg')
+                    )
+                }}
+            </p>
             <p class="lead">
                 Voters need answers. Am I registered? Where do candidates stand on the
                 issues that are important to me? How do I mark the ballot? What can I do
@@ -30,10 +40,6 @@
                 <li>help you report fraud or intimidation</li>
                 <li>and many more</li>
             </ul>
-
-            <p>
-                <strong><a href="/signup" class="btn btn-success btn-lg">Ayo gabung!</a></strong>
-            </p>
 
             <p>
                 We're looking for server, database, web and mobile developers
