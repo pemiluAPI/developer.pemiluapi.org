@@ -28,7 +28,7 @@
                 <br>
                 <p>
                     Dengan membuat akun ini, berarti anda setuju dengan
-                    <a href="#" target="_blank">syarat dan ketentuan</a> kami.
+                    {{ link_to('terms', 'syarat dan ketentuan') }} kami.
                 </p>
                 <br>
                 {{ Form::button('Daftarkan', array('type' => 'submit', 'class' => 'btn btn-primary')) }}

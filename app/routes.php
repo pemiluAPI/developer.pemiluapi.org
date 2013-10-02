@@ -26,6 +26,11 @@ Route::get('/documentation', function()
     return View::make('documentation');
 });
 
+Route::get('/terms', function()
+{
+    return View::make('terms');
+});
+
 Route::get('/signup', function()
 {
     if (Auth::check())

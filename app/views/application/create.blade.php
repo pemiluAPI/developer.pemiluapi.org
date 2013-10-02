@@ -30,8 +30,8 @@
                 </div>
                 <br>
                 <p>
-                    Dengan membuat aplikasi ini, berarti anda setuju dengan
-                    <a href="#" target="_blank">syarat dan ketentuan</a> kami.
+                    Dengan membuat aplikasi, berarti anda setuju dengan
+                    {{ link_to('terms', 'syarat dan ketentuan') }} kami.
                 </p>
                 <br>
                 {{ Form::button('Submit', array('type' => 'submit', 'class' => 'btn btn-primary')) }}
