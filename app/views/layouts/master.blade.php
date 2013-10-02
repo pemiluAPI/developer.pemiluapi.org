@@ -27,7 +27,6 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     {{ Helper::navItem('Beranda') }}
-                    {{ Helper::navItem('Tentang situs', 'about') }}
                     {{ Helper::navItem('Dokumentasi', 'documentation') }}
                     {{ Helper::navItem('Endpoint', 'endpoints') }}
                 </ul>
