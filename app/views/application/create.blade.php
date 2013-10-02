@@ -5,6 +5,10 @@
     <div class="page-header"><h1>Membuat aplikasi</h1></div>
     <div class="row">
         <div class="col-lg-6">
+            <p class="lead">
+                Untuk menggunakan PemiluAPI, anda membutuhkan key.
+                Dapatkan key dengan cara membuat aplikasi.
+            </p>
             {{ Form::model($application, array('route' => array('application.store'))) }}
                 <div class="form-group @if($errors->has('title')) has-error @endif">
                     {{ Form::label('title', 'Nama', array('class' => 'control-label')) }}
