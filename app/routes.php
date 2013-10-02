@@ -50,7 +50,17 @@ Route::post('/signup', function()
         'password' => 'required|min:5|same:password_confirmation'
     );
 
-    $validator = Validator::make($data, $rules);
+    $messages = array(
+        'required' => 'Tidak boleh kosong.',
+        'email' => 'Harus menggunakan format alamat e-mail.',
+        'alpha' => 'Hanya dapat berisi huruf.',
+        'unique' => 'Alamat email telah digunakan.',
+        'min' => 'Harus minimal :min karakter.',
+        'same' => 'Password dan konfirmasi password harus sama.'
+
+    );
+
+    $validator = Validator::make($data, $rules, $messages);
 
     if ($validator->passes())
     {

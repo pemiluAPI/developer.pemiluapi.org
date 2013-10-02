@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="page-header"><h1>Elections API 2014</h1></div>
+    <div class="page-header"><h1>Pemilu API 2014</h1></div>
     <div class="row">
         <div class="col-lg-8">
             <p class="lead">
@@ -32,7 +32,7 @@
             </ul>
 
             <p>
-                <strong><a href="/signup">Join us!</a></strong>
+                <strong><a href="/signup" class="btn btn-success btn-lg">Ayo gabung!</a></strong>
             </p>
 
             <p>
@@ -50,7 +50,7 @@
         <div class="col-lg-4">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title">What's an API?</h3>
+                    <h3 class="panel-title">Apa itu API?</h3>
                 </div>
                 <div class="panel-body">
                     <p>
@@ -68,7 +68,7 @@
             </div>
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Contact Us</h3>
+                    <h3 class="panel-title">Hubungi Kami</h3>
                 </div>
                 <div class="panel-body">
                     <p>

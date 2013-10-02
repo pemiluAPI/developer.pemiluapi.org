@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>PemiluAPI developer website</title>
+    <title>PemiluAPI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{ HTML::style('css/bootstrap.min.css') }}
     {{ HTML::style('css/application.css') }}
@@ -22,30 +22,30 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">PemiluAPI developer website</a>
+                <a class="navbar-brand" href="/">PemiluAPI</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    {{ Helper::navItem('Home') }}
-                    {{ Helper::navItem('About', 'about') }}
-                    {{ Helper::navItem('Documentation', 'documentation') }}
-                    {{ Helper::navItem('Endpoints', 'endpoints') }}
+                    {{ Helper::navItem('Beranda') }}
+                    {{ Helper::navItem('Tentang situs', 'about') }}
+                    {{ Helper::navItem('Dokumentasi', 'documentation') }}
+                    {{ Helper::navItem('Endpoint', 'endpoints') }}
                 </ul>
                 @if(Auth::check())
                 <ul class="nav navbar-nav navbar-right">
-                    {{ Helper::navItem('My Account', 'account') }}
-                    {{ Helper::navItem('Applications', 'application') }}
+                    {{ Helper::navItem('Akun', 'account') }}
+                    {{ Helper::navItem('Aplikasi', 'application') }}
                     {{ Helper::navItem('Logout', 'logout') }}
                 </ul>
                 @else
                 {{ Form::open(array('url' => 'login', 'class' => 'navbar-form navbar-right')) }}
                     <div class="form-group">
-                        {{ Form::text('email', null, array('class' => 'form-control', 'placeholder' => 'E-mail address')) }}
+                        {{ Form::text('email', null, array('class' => 'form-control', 'placeholder' => 'Alamat e-mail')) }}
                     </div>
                     <div class="form-group">
                         {{ Form::password('password', array('class' => 'form-control', 'placeholder' => 'Password')) }}
                     </div>
-                    <button type="submit" class="btn btn-success">Log in</button>
+                    <button type="submit" class="btn btn-success">Login</button>
                 <{{ Form::close() }}
                 @endif
             </div>
@@ -62,7 +62,7 @@
 
     <footer>
         <div class="container">
-            <p>The Elections API is being built in partnership with <a href="http://asiafoundation.org/">The Asia Foundation</a></p>
+            <p>PemiluAPI dibangun dalam kemitraan dengan <a href="http://asiafoundation.org/">The Asia Foundation</a></p>
         </div>
     </footer>
 

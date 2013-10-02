@@ -41,7 +41,12 @@ class ApplicationController extends \BaseController {
             'endpoints' => 'required'
         );
 
-        $validator = Validator::make($data, $rules);
+        $messages = array(
+            'required' => 'Tidak boleh kosong.',
+            'endpoints.required' => 'Harus dipilih.'
+        );
+
+        $validator = Validator::make($data, $rules, $messages);
 
         if ($validator->passes())
         {

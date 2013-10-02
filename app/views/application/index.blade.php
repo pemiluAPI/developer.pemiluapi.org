@@ -4,8 +4,8 @@
 <div class="container">
     <div class="page-header">
         <h1>
-            List of applications
-            {{ link_to_route('application.create', 'Create new', array(), array('class' => 'btn btn-success')) }}
+            Aplikasi saya
+            {{ link_to_route('application.create', 'Buat baru', array(), array('class' => 'btn btn-success')) }}
         </h1>
     </div>
     <div class="row">
@@ -23,14 +23,14 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title">Delete application</h4>
+                            <h4 class="modal-title">Hapus aplikasi</h4>
                         </div>
                         <div class="modal-body">
-                            <p>Are you sure you want to delete application "{{ $application->title }}"?</p>
+                            <p>Apakah anda yakin akan menghapus aplikasi "{{ $application->title }}"?</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-danger">Delete application</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-danger">Hapus aplikasi</button>
                         </div>
                     </div>
                     {{ Form::close() }}
@@ -39,8 +39,14 @@
 
             <h3>
                 {{ $application->title }}
-                {{ link_to_route('application.edit', 'Edit', $application->id, array('class' => 'btn btn-primary')) }}
-                <a href="#deleteApplication{{ $application->id }}" class="btn btn-danger" data-toggle="modal">Delete</a>
+                {{ HTML::decode(link_to_route(
+                    'application.edit',
+                    '<span class="glyphicon glyphicon-trash"></span>Edit',
+                    $application->id,
+                    array('class' => 'btn btn-primary btn-sm'))) }}
+                <a href="#deleteApplication{{ $application->id }}" class="btn btn-warning btn-sm" data-toggle="modal">
+                    <span class="glyphicon glyphicon-trash"></span> Delete
+                </a>
             </h3>
             <p>
                 Key: <code>{{ $application->api_key }}</code>
@@ -48,14 +54,14 @@
             <p>
                 {{ $application->description }}
             </p>
-            <h4>Registered endpoints</h4>
+            <h4>Endpoint yang digunakan</h4>
             <table class="table table-bordered">
                 <tbody>
                     @foreach ($application->endpoints() as $endpoint)
                         @if (in_array($endpoint['slug'], json_decode($application->endpoints)))
                         <tr>
                             <td>{{ $endpoint['name'] }}</td>
-                            <td>{{ $endpoint['desc'] }}</td>
+                            <td><small>{{ $endpoint['desc'] }}</small></td>
                         </tr>
                         @endif
                     @endforeach
@@ -65,7 +71,7 @@
 
             @if ($applications->count() == 0)
             <div class="alert alert-warning">
-                You haven't created any application. {{ link_to_route('application.create', 'Create one?') }}
+                Anda belum membuat aplikasi. {{ link_to_route('application.create', 'Buat sekarang?') }}
             </div>
             @endif
         </div>

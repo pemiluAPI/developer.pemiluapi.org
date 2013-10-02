@@ -14,7 +14,7 @@
             <h3>{{ $endpoint['name'] }}</h3>
             <p>{{ $endpoint['desc'] }}</p>
             <p>
-                Documentation: <a href="{{ $endpoint['docs'] }}" target="_blank">{{ $endpoint['docs'] }}</a>
+                Tautan ke dokumentasi: <a href="{{ $endpoint['docs'] }}" target="_blank">{{ $endpoint['docs'] }}</a>
             </p>
             @endforeach
         </div>
