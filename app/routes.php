@@ -22,7 +22,7 @@ Route::group(array('prefix' => 'api'), function()
     {
         $apiKey = Input::get('apiKey');
 
-        $application = Application::where('api_key', '=', $apiKey)->count();
+        $application = Application::where('api_key', '=', $apiKey)->exists();
 
         switch ($application) {
             case true:
