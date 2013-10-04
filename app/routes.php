@@ -16,6 +16,40 @@ Route::get('/', function()
     return View::make('about');
 });
 
+Route::group(array('prefix' => 'api'), function()
+{
+    Route::get('authenticate', function()
+    {
+        $apiKey = Input::get('apiKey');
+
+        $application = Application::where('api_key', '=', $apiKey)->count();
+
+        switch ($application) {
+            case true:
+                $data = array(
+                    'data' => array(
+                        'message' => 'ok'
+                    )
+                );
+
+                $status = 200;
+                break;
+
+            case false:
+                $data = array(
+                    'error' => array(
+                        'type' => 'invalid_request_error'
+                    )
+                );
+
+                $status = 401;
+                break;
+        }
+
+        return Response::json($data, $status);
+    });
+});
+
 Route::get('/about', function()
 {
     return View::make('about');
