@@ -20,6 +20,19 @@ class Application extends Eloquent {
      */
     protected $softDelete = true;
 
+    public static $factory = array(
+        'title' => 'string',
+        'description' => 'text',
+        'api_key' => 'string',
+        'user_id' => 'factory|User',
+        'endpoints' => 'string',
+    );
+
+    public function user()
+    {
+        return $this->belongsTo('User');
+    }
+
     public function endpoints()
     {
         $uri = Config::get('pemiluapi.host');

@@ -61,4 +61,15 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->hasMany('Application');
 	}
 
+	public static $factory = array(
+		'name' => 'string',
+		'email' => 'email',
+		'password' => 'call|hashPassword|string'
+	);
+
+	public static function hashPassword($string)
+	{
+		return Hash::make($string);
+	}
+
 }
