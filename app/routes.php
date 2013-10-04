@@ -48,6 +48,37 @@ Route::group(array('prefix' => 'api'), function()
 
         return Response::json($data, $status);
     });
+
+    Route::get('application', function()
+    {
+        $apiKey = Input::get('apiKey');
+
+        $application = Application::where('api_key', '=', $apiKey)->first();
+
+        switch ($application) {
+            case true:
+                $data = array(
+                    'data' => array(
+                        'title' => $application->title
+                    )
+                );
+
+                $status = 200;
+                break;
+
+            case false:
+                $data = array(
+                    'error' => array(
+                        'type' => 'invalid_request_error'
+                    )
+                );
+
+                $status = 401;
+                break;
+        }
+
+        return Response::make($data, $status);
+    });
 });
 
 Route::get('/about', function()
