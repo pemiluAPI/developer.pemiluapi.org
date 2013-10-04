@@ -22,21 +22,21 @@ class AuthenticateTest extends TestCase {
 
     public function testValidApiKey()
     {
-        $response = $this->call($this->method, $this->uri, array('apiKey' => $this->application->api_key));
+        $this->call($this->method, $this->uri, array('apiKey' => $this->application->api_key));
 
         $this->assertResponseStatus(200);
     }
 
     public function testInvalidApiKey()
     {
-        $response = $this->call($this->method, $this->uri, array('apiKey' => 'insertsomerandominvalidkeyhere'));
+        $this->call($this->method, $this->uri, array('apiKey' => 'insertsomerandominvalidkeyhere'));
 
         $this->assertResponseStatus(401);
     }
 
     public function testWithoutApiKey()
     {
-        $response = $this->call($this->method, $this->uri);
+        $this->call($this->method, $this->uri);
 
         $this->assertResponseStatus(401);
     }
