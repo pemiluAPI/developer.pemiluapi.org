@@ -36,7 +36,11 @@ class Application extends Eloquent {
     public function endpoints()
     {
         $uri = Config::get('pemiluapi.host');
-        $client = new Client($uri);
+        $client = new Client($uri, array(
+            'request.options' => array(
+                'query' => array('apiKey' => md5('PemiluAPI Developer'))
+            )
+        ));
         $endpoints = $client->get('/endpoints')->send()->json();
         return $endpoints['data'];
     }
