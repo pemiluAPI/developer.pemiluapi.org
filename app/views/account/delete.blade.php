@@ -2,18 +2,20 @@
 
 @section('content')
 <div class="container">
-    <div class="page-header"><h1>Delete account</h1></div>
+    <div class="page-header"><h1>Hapus akun</h1></div>
     <div class="row">
         <div class="col-lg-6">
-            <p>
-                By deleting your account, your applications will be no longer able to
-                use the Pemilu API
-            </p>
+            <div class="alert alert-danger">
+                <strong>Perhatian!</strong> Dengan menghapus akun ini, aplikasi anda tidak akan dapat
+                menggunakan Pemilu API
+            </div>
+            <div class="pull-right">
             {{ Form::open(array('url' => 'account/delete', 'method' => 'delete')) }}
                 <button type="submit" class="btn btn-danger">
-                    <span class="glyphicon glyphicon-trash"></span> Delete this account
+                    <span class="glyphicon glyphicon-trash"></span> Hapus akun ini
                 </button>
             {{ Form::close() }}
+            </div>
         </div>
     </div>
 </div>
