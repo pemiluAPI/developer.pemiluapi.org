@@ -22,11 +22,11 @@
                 <div class="form-group @if($errors->has('endpoints')) has-error @endif">
                     <label class="control-label">Endpoint yang digunakan</label>
                     <small class="text-danger">{{ $errors->first('endpoints') }}</small>
-                    @foreach($application->endpoints as $endpoint)
+                    @foreach($application->endpoints as $slug => $endpoint)
                     <div class="checkbox">
                         <label>
-                            <?php $checked = is_null(Input::old('endpoints')) ? false : in_array($endpoint['slug'], Input::old('endpoints')); ?>
-                            {{ Form::checkbox('endpoints[]', $endpoint['slug'], $checked) }}
+                            <?php $checked = is_null(Input::old('endpoints')) ? false : in_array($slug, Input::old('endpoints')); ?>
+                            {{ Form::checkbox('endpoints[]', $slug, $checked) }}
                             {{ $endpoint['name'] }} &mdash;<small>{{ $endpoint['desc'] }}</small>
                         </label>
                     </div>

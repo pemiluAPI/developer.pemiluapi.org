@@ -57,8 +57,8 @@
             <h4>Endpoint yang digunakan</h4>
             <table class="table table-bordered">
                 <tbody>
-                    @foreach ($application->endpoints() as $endpoint)
-                        @if (in_array($endpoint['slug'], json_decode($application->endpoints)))
+                    @foreach ($application->endpoints() as $slug => $endpoint)
+                        @if (in_array($slug, json_decode($application->endpoints)))
                         <tr>
                             <td>{{ $endpoint['name'] }}</td>
                             <td><small>{{ $endpoint['desc'] }}</small></td>

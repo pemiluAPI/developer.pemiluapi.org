@@ -26,10 +26,10 @@
                 <div class="form-group @if($errors->has('endpoints')) has-error @endif">
                     <label class="control-label">Endpoint yang digunakan</label>
                     <small class="text-danger">{{ $errors->first('endpoints') }}</small>
-                    @foreach ($endpoints as $endpoint)
+                    @foreach ($endpoints as $slug => $endpoint)
                     <div class="checkbox">
                         <label>
-                            {{ Form::checkbox('endpoints[]', $endpoint['slug']) }}
+                            {{ Form::checkbox('endpoints[]', $slug) }}
                             {{ $endpoint['name'] }} &mdash;<small>{{ $endpoint['desc'] }}</small>
                         </label>
                     </div>
