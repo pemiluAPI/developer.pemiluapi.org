@@ -171,6 +171,9 @@ Route::post('/login', function()
 
 Route::get('/logout', function()
 {
+    Session::flash('alert', 'Anda telah logout.');
+    Session::flash('alert_class', 'warning');
+
     Auth::logout();
 
     return Redirect::to('login');
