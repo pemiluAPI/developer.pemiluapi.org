@@ -116,7 +116,7 @@ Route::post('/signup', function()
 
     $rules = array(
         'email' => 'required|email|unique:users',
-        'name' => 'required|alpha|min:2',
+        'name' => 'required|min:2',
         'password' => 'required|min:5|same:password_confirmation'
     );
 
