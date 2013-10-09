@@ -24,7 +24,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
      *
      * @var boolean
      */
-	protected $softDelete = true;
+	protected $softDelete = false;
 
 	/**
 	 * Get the unique identifier for the user.

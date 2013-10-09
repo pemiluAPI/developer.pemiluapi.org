@@ -18,7 +18,7 @@ class Application extends Eloquent {
      *
      * @var boolean
      */
-    protected $softDelete = true;
+    protected $softDelete = false;
 
     public static $factory = array(
         'title' => 'string',
