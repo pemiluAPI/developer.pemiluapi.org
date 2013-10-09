@@ -41,7 +41,7 @@
                 {{ $application->title }}
                 {{ HTML::decode(link_to_route(
                     'application.edit',
-                    '<span class="glyphicon glyphicon-trash"></span>Edit',
+                    'Edit',
                     $application->id,
                     array('class' => 'btn btn-primary btn-sm'))) }}
                 <a href="#deleteApplication{{ $application->id }}" class="btn btn-warning btn-sm" data-toggle="modal">
