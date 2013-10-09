@@ -4,6 +4,7 @@
 composer.phar
 composer.lock
 .DS_Store
+/tests/report
 
 Capfile
 Gemfile
