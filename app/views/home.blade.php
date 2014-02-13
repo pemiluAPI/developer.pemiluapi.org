@@ -3,13 +3,17 @@
 @section('content')
 <div class="jumbotron">
     <div class="container">
-        <h1>Pemilu API 2014</h1>
+        <h1>API Pemilu</h1>
         <p>
-            Voters need answers. Am I registered? Where do candidates stand on the
-            issues that are important to me? How do I mark the ballot? What can
-            I do if I'm having trouble voting? To answer those questions, and many
-            more, we're helping to build an open repository of information for
-            Indonesian voters in 2014 &mdash; an elections API.
+            Pemilih butuh jawaban. Apakah saya terdaftar? Bagaimana pendirian
+            para kandidat mengenai permasalahan yang penting bagi saya? Bagaimana
+            mencoblos yang baik dan benar? Bagaimana apabila saya menemui
+            kesulitan untuk memilih?
+        </p>
+        <p>
+            Untuk menjawab pertanyaan-pertanyaan tersebut, dan masih banyak lagi,
+            kami membantu membangun sebuah tempat penyimpanan informasi terbuka
+            untuk para pemilih Indonesia pada tahun 2014 — sebuah API Pemilu.
         </p>
         <p><a href="/about" class="btn btn-primary btn-lg">Pelajari &raquo;</a></p>
     </div>

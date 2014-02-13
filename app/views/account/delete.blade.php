@@ -7,7 +7,7 @@
         <div class="col-lg-6">
             <div class="alert alert-danger">
                 <strong>Perhatian!</strong> Dengan menghapus akun ini, aplikasi anda tidak akan dapat
-                menggunakan Pemilu API
+                menggunakan API Pemilu
             </div>
             <div class="pull-right">
             {{ Form::open(array('url' => 'account/delete', 'method' => 'delete')) }}

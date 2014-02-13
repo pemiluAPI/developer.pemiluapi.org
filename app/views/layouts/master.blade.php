@@ -66,7 +66,7 @@
 
     <footer>
         <div class="container">
-            <p>PemiluAPI dibangun dalam kemitraan dengan <a href="http://asiafoundation.org/">The Asia Foundation</a></p>
+            <p>API Pemilu dikelola oleh Perkumpulan untuk Pemilu dan Demokrasi, atau <a href="http://rumahpemilu.org">Perludem</a>, organisasi yang dibentuk mantan anggota dan staf Panwas Pemilu 2004.</p>
         </div>
     </footer>
 
