@@ -6,8 +6,8 @@
     <div class="row">
         <div class="col-lg-8">
             <p>
-                Temukan dokumentasi terbaru PemiluAPI di
-                {{ link_to('http://docs.pemilunews.apiary.io/', 'docs.pemilunews.apiary.io', array('target' => '_blank')) }}
+                Temukan dokumentasi terbaru API Pemilu di
+                {{ link_to('http://developer.pemiluapi.org/endpoints', 'Endpoints', array('target' => '_blank')) }}
             </p>
         </div>
     </div>
