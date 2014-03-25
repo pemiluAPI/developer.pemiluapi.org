@@ -16,65 +16,20 @@
                 }}
             </p>
 
-            <p class="lead">
-                Pemilih butuh jawaban. Apakah saya terdaftar? Bagaimana pendirian
-                para kandidat mengenai permasalahan yang penting bagi saya? Bagaimana
-                mencoblos yang baik dan benar? Bagaimana apabila saya menemui
-                kesulitan untuk memilih?
-            </p>
-            <p>
-                Untuk menjawab pertanyaan-pertanyaan tersebut, dan masih banyak lagi,
-                kami membantu membangun sebuah tempat penyimpanan informasi terbuka
-                untuk para pemilih Indonesia pada tahun 2014 — sebuah API Pemilu.
-            </p>
-            <p>Pengembang akan dapat menggunakan API tersebut untuk membangun aplikasi yang dapat mengerjakan hal-hal berikut:</p>
+            <p class="lead">Selamat datang di situs khusus pengembang API Pemilu, API informasi sipil untuk Pemilu 2014 dan seterusnya!</p>
+            <p>Jika kamu ingin membangun sebuah aplikasi dengan menggunakan API ini, kamu telah datang ke tempat yang tepat.</p>
 
-            <ul>
-                <li>Membantu masyarakat untuk memastikan bahwa mereka adalah pemilih terdaftar</li>
-                <li>Memberi tahu teman-teman kalau kamu sudah memilih</li>
-                <li>Membuat animasi .gif mengenai suatu topik dan menyebarkannya</li>
-                <li>Mengingatkan bila ada acara politik yang ingin dihadiri</li>
-                <li>Memainkan video buatan pendukung calon tertentu</li>
-                <li>Menjalankan program otomatis (bot) untuk Twitter yang akan men-twit setiap seorang calon diliput oleh media</li>
-                <li>Menunjukkan seperti apa lembar suara itu</li>
-                <li>Memberikan kuis lalu men-twit skormu</li>
-                <li>Membantu pelaporan apabila ditemukan pemalsuan atau intimidasi</li>
-            </ul>
+            <p>Silahkan mendaftar untuk mendapatkan kunci API dengan membuat akun dan mendaftarkan aplikasi, atau gunakan kunci gratis ini: <strong>fea6f7d9ec0b31e256a673114792cb17</strong></p>
 
-            <p>
-                Kami mencari pengembang untuk server, database, web dan mobile
-                untuk membantu kami dalam membangun API dan aplikasi-aplikasi
-                untuk itu.
-            </p>
-            <p>
-                Kami juga membuka kesempatan bagi desainer, marketer, ilustrator,
-                animator atau individu berbakat lainnya yang ingin terlibat dalam
-                proyek ini.
-            </p>
-            <p>
-                <strong>Jadilah bagian dari sejarah</strong> dan mudahkanlah pemilihan dalam
-                pemilihan umum demokratis terbesar di Indonesia.
-            </p>
+            <p>Kami sarankan agar anda mendaftarkan kunci anda sendiri apabila akan menggunakan API ini untuk aplikasi produksi.</p>
+
+            <p>Dokumentasi untuk endpoint API dapat dilihat di sini: http://developer.pemiluapi.org/endpoints</p>
+
+            <p>API Pemilu sepenuhnya adalah proyek sumber terbuka (open-source). Kamu bisa menemukan semua kode untuk API ini pada <a href="https://github.com/pemiluAPI/">laman GitHub organisasi kami</a>. Kamu juga bisa menemukan dan mengunduh semua raw data dari API ini di <a href="https://github.com/pemiluAPI/pemilu-data">repository pemilu-data</a> di sana.</p>
+
+            <p>Terima kasih atas perhatiannya terhadap API ini. Jika kamu menemui masalah, silahkan kontak kami di contact@pemiluapi.org atau Twitter @APIPemilu</p>
         </div>
         <div class="col-lg-4">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Apa itu API?</h3>
-                </div>
-                <div class="panel-body">
-                    <p>
-                        API adalah singkatan dari <em>Application Programming Interface</em>. Interface
-                        atau antarmuka adalah dimana dua sistem bertemu dan berinteraksi.
-                        Sebuah API adalah antarmuka yang digunakan oleh sebuah aplikasi agar
-                        dapat berkomunikasi dengan aplikasi lain.
-                    </p>
-                    <p>
-                        <em>API Pemilu</em> akan menjadi sebuah aplikasi yang menggunakan antarmukanya agar
-                        informasi dan fungsionalitas tentang pemilu 2014 di Indonesia tersedia
-                        untuk aplikasi lain.
-                    </p>
-                </div>
-            </div>
         </div>
     </div>
 </div>
