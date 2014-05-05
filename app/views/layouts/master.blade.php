@@ -29,6 +29,9 @@
                     {{ Helper::navItem('Beranda') }}
                     {{ Helper::navItem('Dokumentasi', 'documentation') }}
                     {{ Helper::navItem('Endpoint', 'endpoints') }}
+                    @if(Auth::check() && Auth::user()->is_admin)
+                        {{ Helper::navItem('Applications', 'applications') }}
+                    @endif
                 </ul>
                 @if(Auth::check())
                 <ul class="nav navbar-nav navbar-right">
