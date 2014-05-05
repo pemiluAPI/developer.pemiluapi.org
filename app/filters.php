@@ -46,9 +46,22 @@ Route::filter('auth', function()
     }
 });
 
+Route::filter('is_admin', function()
+{
+    if (!Auth::user()->is_admin)
+    {
+        if (Request::path() == 'applications')
+        {
+            $message = 'mengakses halaman tersebut';
+        }
+        Session::flash('alert', 'Anda harus sebagai admin untuk ' . $message . '. Silahkan login sebagai admin.');
+        Session::flash('alert_class', 'warning');
+        return Redirect::to('/');
+    }
+});
 
 Route::filter('auth.basic', function()
-{
+{        
 	return Auth::basic();
 });
 

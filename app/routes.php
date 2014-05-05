@@ -190,6 +190,11 @@ Route::get('/endpoints', function()
 Route::group(array('before' => 'auth'), function()
 {
     Route::resource('application', 'ApplicationController');
+    
+    Route::group(array('before' => 'is_admin'), function()
+    {
+        Route::resource('applications', 'ApplicationsController');
+    });
 
     Route::get('/account/delete', function()
     {
