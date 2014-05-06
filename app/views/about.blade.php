@@ -16,8 +16,8 @@
                 }}
             </p>
 
-            <p class="lead">Selamat datang di situs khusus pengembang API Pemilu, API informasi sipil untuk Pemilu 2014 dan seterusnya!</p>
-            <p>Jika kamu ingin membangun sebuah aplikasi dengan menggunakan API ini, kamu telah datang ke tempat yang tepat.</p>
+            <p class="lead">Selamat datang di situs khusus developer API Pemilu, API informasi sipil untuk Pemilu 2014 dan seterusnya!</p>
+            <p>Jika kamu ingin mengembangkan aplikasi dengan menggunakan API ini, kamu telah datang ke tempat yang tepat.</p>
 
             <p>Silahkan mendaftar untuk mendapatkan key API dengan membuat akun dan mendaftarkan aplikasi, atau gunakan key gratis ini: <strong>fea6f7d9ec0b31e256a673114792cb17</strong></p>
 
