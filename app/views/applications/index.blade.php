@@ -12,10 +12,18 @@
                  {{ Form::button('Search', array('type' => 'submit', 'class' => 'btn btn-primary')) }}
              {{ Form::close() }}
              @foreach ($applications as $application)
-                 <h3>{{ $application->title }}</h3>
-                 <h4>{{ $application->description }}</h4>
-                 <p><code>{{ $application->api_key }}</code></p>
-                 <p>{{ $application->user["name"] }}</p>
+                 @if (!empty($application->title))
+                    <h3>App Name: {{ $application->title }}</h3>
+                 @endif
+                 @if (!empty($application->description))
+                    <h4>Description: {{ $application->description }}</h4>
+                 @endif
+                 @if (!empty($application->api_key))
+                    <p>Key: <code>{{ $application->api_key }}</code></p>
+                 @endif
+                 @if (!empty($application->user_id))
+                    <p>Username: {{ $application->user["name"] }}</p>
+                 @endif
                  <?php $endpoints = json_decode($application->endpoints) ?>
                  @if (!is_null($endpoints))
                      Endpoints:
@@ -23,9 +31,11 @@
                          @for ($i=0; $i < count($endpoints); $i++)                       
                              <li>{{$endpoints[$i]}}</li>
                          @endfor
-                     </ul>                       
+                     </ul>
                  @endif
-                 <p>{{ date("d-m-Y H:i:s",strtotime($application->created_at)) }}</p>
+                 @if (!empty($application->created_at))
+                    <p>Created Date: {{ date("d-m-Y H:i:s",strtotime($application->created_at)) }}</p>
+                 @endif
              @endforeach
              {{$applications->appends(Input::except('page'))->links()}}
         </div>
