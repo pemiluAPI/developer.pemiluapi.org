@@ -10,11 +10,15 @@ class ApplicationsController extends \BaseController {
 	public function index()
 	{
             $query = Input::get('query');
-            $applications = Application::leftJoin('users', 'applications.user_id', '=', 'users.id')
-                                       ->where('title', 'like', '%'.$query.'%')
-                                       ->orWhere('description', 'like', '%'.$query.'%')
-                                       ->orWhere('users.name', 'like', '%'.$query.'%')
-                                       ->paginate(Config::get('pemiluapi.pagenumber'));
-            return View::make('applications.index')->with('query', $query)->with('applications', $applications);
+
+            $applications = Application::join('users', 'applications.user_id', '=', 'users.id')
+                                ->where('title', 'LIKE', "%{$query}%")
+                                ->orWhere('api_key', $query)
+                                ->orWhere('description', 'LIKE', "%{$query}%")
+                                ->paginate(Config::get('pemiluapi.perPage'));
+
+            return View::make('applications.index')
+                        ->with('query', $query)
+                        ->with('applications', $applications);
 	}
 }
