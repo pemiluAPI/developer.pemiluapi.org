@@ -5,76 +5,91 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'users';
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
 
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $hidden = array('password');
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = array('password');
 
-	/**
+    /**
      * Enable soft deletes for the model.
      *
      * @var boolean
      */
-	protected $softDelete = false;
+    protected $softDelete = false;
 
-	/**
-	 * Get the unique identifier for the user.
-	 *
-	 * @return mixed
-	 */
-	public function getAuthIdentifier()
-	{
-		return $this->getKey();
-	}
+    /**
+     * Get the unique identifier for the user.
+     *
+     * @return mixed
+     */
+    public function getAuthIdentifier()
+    {
+        return $this->getKey();
+    }
 
-	/**
-	 * Get the password for the user.
-	 *
-	 * @return string
-	 */
-	public function getAuthPassword()
-	{
-		return $this->password;
-	}
+    /**
+     * Get the password for the user.
+     *
+     * @return string
+     */
+    public function getAuthPassword()
+    {
+        return $this->password;
+    }
 
-	/**
-	 * Get the e-mail address where password reminders are sent.
-	 *
-	 * @return string
-	 */
-	public function getReminderEmail()
-	{
-		return $this->email;
-	}
+    /**
+     * Get the e-mail address where password reminders are sent.
+     *
+     * @return string
+     */
+    public function getReminderEmail()
+    {
+        return $this->email;
+    }
 
     public function getIsAdmin()
     {
         return $this->is_admin;
     }
 
-	public function applications()
-	{
-		return $this->hasMany('Application');
-	}
+    public function applications()
+    {
+        return $this->hasMany('Application');
+    }
 
-	public static $factory = array(
-		'name' => 'string',
-		'email' => 'email',
-		'password' => 'call|hashPassword|string'
-	);
+    public static $factory = array(
+        'name' => 'string',
+        'email' => 'email',
+        'password' => 'call|hashPassword|string'
+    );
 
-	public static function hashPassword($string)
-	{
-		return Hash::make($string);
-	}
+    public static function hashPassword($string)
+    {
+        return Hash::make($string);
+    }
+
+    public function getRememberToken()
+    {
+        return $this->remember_token;
+    }
+
+    public function setRememberToken($value)
+    {
+        $this->remember_token = $value;
+    }
+
+    public function getRememberTokenName()
+    {
+        return 'remember_token';
+    }
 
 }
