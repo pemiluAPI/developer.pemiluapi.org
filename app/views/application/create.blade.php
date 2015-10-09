@@ -22,14 +22,32 @@
                 <div class="form-group @if($errors->has('endpoints')) has-error @endif">
                     <label class="control-label">Endpoint yang digunakan</label>
                     <small class="text-danger">{{ $errors->first('endpoints') }}</small>
+                    <br/>
+                    <hr/>
+                    <strong>PEMILU 2014</strong>
                     @foreach($application->endpoints as $slug => $endpoint)
-                    <div class="checkbox">
-                        <label>
-                            <?php $checked = is_null(Input::old('endpoints')) ? false : in_array($slug, Input::old('endpoints')); ?>
-                            {{ Form::checkbox('endpoints[]', $slug, $checked) }}
-                            {{ $endpoint['name'] }} &mdash;<small>{{ $endpoint['desc'] }}</small>
-                        </label>
-                    </div>
+                        @if ($endpoint['kind'] === "pemilu2014")
+                            <div class="checkbox">
+                                <label>
+                                    <?php $checked = is_null(Input::old('endpoints')) ? false : in_array($slug, Input::old('endpoints')); ?>
+                                    {{ Form::checkbox('endpoints[]', $slug, $checked) }}
+                                    {{ $endpoint['name'] }} &mdash; <small>{{ $endpoint['desc'] }}</small>
+                                </label>
+                            </div>
+                        @endif
+                    @endforeach
+                    <hr/>
+                    <strong>PILKADA 2015</strong>
+                    @foreach($application->endpoints as $slug => $endpoint)
+                        @if ($endpoint['kind'] === "pilkada2015")
+                            <div class="checkbox">
+                                <label>
+                                    <?php $checked = is_null(Input::old('endpoints')) ? false : in_array($slug, Input::old('endpoints')); ?>
+                                    {{ Form::checkbox('endpoints[]', $slug, $checked) }}
+                                    {{ $endpoint['name'] }} &mdash; <small>{{ $endpoint['desc'] }}</small>
+                                </label>
+                            </div>
+                        @endif
                     @endforeach
                 </div>
                 <br>
