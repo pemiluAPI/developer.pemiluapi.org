@@ -11,12 +11,12 @@
             </p>
 
             <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#pemilu2014">Pemilu 2014</a></li>
-                <li><a data-toggle="tab" href="#pilkada2015">Pilkada 2015</a></li>
+                <li><a data-toggle="tab" href="#pemilu2014">Pemilu 2014</a></li>
+                <li class="active"><a data-toggle="tab" href="#pilkada2015">Pilkada 2015</a></li>
             </ul>
 
             <div class="tab-content">
-                <div id="pemilu2014" class="tab-pane fade in active">
+                <div id="pemilu2014" class="tab-pane fade">
                     @foreach ($endpoints as $endpoint)
                         @if ($endpoint['kind'] === "pemilu2014")
                             <h3>{{ $endpoint['name'] }}</h3>
@@ -27,7 +27,7 @@
                         @endif
                     @endforeach
                 </div>
-                <div id="pilkada2015" class="tab-pane fade">
+                <div id="pilkada2015" class="tab-pane fade in active">
                     @foreach ($endpoints as $endpoint)
                         @if ($endpoint['kind'] === "pilkada2015")
                             <h3>{{ $endpoint['name'] }}</h3>
