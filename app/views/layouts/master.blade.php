@@ -70,6 +70,11 @@
     <footer>
         <div class="container">
             <p>API Pemilu dikelola oleh Perkumpulan untuk Pemilu dan Demokrasi, atau <a href="http://rumahpemilu.org">Perludem</a>, organisasi yang dibentuk mantan anggota dan staf Panwas Pemilu 2004.</p>
+            <p>
+                <a href="http://opendefinition.org/okd/">
+                  <img class="open-data" src="http://assets.okfn.org/images/ok_buttons/od_80x15_blue.png" alt="[Open Data]">
+                </a> - <a href="http://opendefinition.org/licenses/cc-by/">Creative Commons Attribution</a>
+            </p>
         </div>
     </footer>
 
