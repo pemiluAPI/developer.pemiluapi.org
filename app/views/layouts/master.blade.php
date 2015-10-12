@@ -73,7 +73,7 @@
             <p>
                 <a href="http://opendefinition.org/okd/">
                   <img class="open-data" src="http://assets.okfn.org/images/ok_buttons/od_80x15_blue.png" alt="[Open Data]">
-                </a> - <a href="http://opendefinition.org/licenses/cc-by/">Creative Commons Attribution</a>
+                </a> - <a href="http://opendefinition.org/licenses/cc-by/">Creative Commons Attribution-ShareAlike 4.0</a>
             </p>
         </div>
     </footer>
