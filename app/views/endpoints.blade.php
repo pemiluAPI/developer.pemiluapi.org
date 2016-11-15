@@ -12,7 +12,7 @@
 
             <ul class="nav nav-tabs">
                 <li><a data-toggle="tab" href="#pemilu2014">Pemilu 2014</a></li>
-        <li><a data-toggle="tab" href="#pilkada2015">Pemilu 2015</a></li>
+                <li><a data-toggle="tab" href="#pilkada2015">Pemilu 2015</a></li>
                 <li class="active"><a data-toggle="tab" href="#pilkada2017">Pemilu 2017</a></li>
             </ul>
 
